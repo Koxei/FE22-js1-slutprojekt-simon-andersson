@@ -64,10 +64,11 @@ form {
 
 /* img container */
 .img-container {
-    margin: 4rem;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    padding-top: 10rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 img {
     height: auto;

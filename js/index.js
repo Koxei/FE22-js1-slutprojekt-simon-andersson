@@ -38,6 +38,9 @@ function size(){
 
 // function to loop over fetched data
 function data(data){
+  if(data.photos.photo.length === 0) {
+    return alert('Could not find the image');
+}
   console.log(data)
   let size = document.querySelector('#size').value;
   for (let i = 0; i < data.photos.photo.length; i++) {
@@ -68,9 +71,6 @@ function checkForInputErrors() {
   }
   return foundError;
 }
-
-
-
 
 
 // eventListener for clicking on button
@@ -104,6 +104,7 @@ btn.addEventListener('click', (e) => {
   .catch(() => {
     alert('ERROR')
   })
+  .finally(hideAnimation);
   }
 })
 
@@ -132,14 +133,15 @@ form.addEventListener('keypress',function(e){
     if (!checkForInputErrors()){
       fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=6d644eb9ae05ab63fe5e7698dbd9427d&text=${topic}&sort=${sort()}&per_page=${imageCount}&page=1}&format=json&nojsoncallback=1`)
     .then(res => {
-        if (res.status >= 200 && res.status < 300) {
-            return res.json();
-        }
+      if (res.status >= 200 && res.status < 300) {
+        return res.json();
+      }
     })
     .then(data)
     .catch(() => {
       alert('ERROR')
     })
+    .finally(hideAnimation);
     }
 }
 })
