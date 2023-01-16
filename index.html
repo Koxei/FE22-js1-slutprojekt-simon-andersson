@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flicker</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="anime.min.js" defer></script>
+    <script src="js/index.js" defer></script>
+</head>
+<body>
+    <h1>Photo engine</h1>
+        <!-- Search engine -->
+    <form>
+        <input type="search" id="search" placeholder="Search" required>
+        <input type="number" id="number" placeholder="50">
+
+        <select name="size" id="size">
+            <option value="w">Small</option>
+            <option value="z">Medium</option>
+            <option value="b">Large</option>
+        </select>
+
+        <select name="sort" id="sort" onchange="sort();">
+            <option value="date-posted-asc">Date posted</option>
+            <option value="interestingness-asc">Interestingess</option>
+            <option value="relevance">Relevance</option>
+        </select>
+
+        <input type="button" id="btn" value="Search">
+    </form>
+    <p id="errorParagraf"></p>
+    <!-- Container for the template -->
+    <div class="img-container" data-container></div>
+
+    <!-- template for the fetched photos -->
+    <template id="APIcontainer" data-template>
+       <div>
+            <img src="">
+       </div>
+    </template>
+
+    <!-- Loading Animation -->
+    <div class="wrapper">
+        <div class="spinner-wrapper">
+            <div class="fading-circle"></div>
+            <div class="fading-circle"></div>
+            <div class="fading-circle"></div>
+        </div>
+    </div>
+    
+</body>
+</html>
